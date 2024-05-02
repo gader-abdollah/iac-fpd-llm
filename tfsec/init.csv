@@ -1,5 +1,0 @@
-file,start_line,end_line,rule_id,severity,description,link,passed
-terraform-aws-eks/node_groups.tf,247,247,aws-ec2-no-public-egress-sgr,CRITICAL,Security group rule allows egress to multiple public internet addresses.,https://aquasecurity.github.io/tfsec/v1.28.5/checks/aws/ec2/no-public-egress-sgr/,false
-terraform-aws-eks/main.tf,27,105,aws-eks-enable-control-plane-logging,MEDIUM,Control plane scheduler logging is not enabled.,https://aquasecurity.github.io/tfsec/v1.28.5/checks/aws/eks/enable-control-plane-logging/,false
-terraform-aws-eks/main.tf,27,105,aws-eks-enable-control-plane-logging,MEDIUM,Control plane controller manager logging is not enabled.,https://aquasecurity.github.io/tfsec/v1.28.5/checks/aws/eks/enable-control-plane-logging/,false
-terraform-aws-vpc/main.tf,28,51,aws-ec2-require-vpc-flow-logs-for-all-vpcs,MEDIUM,VPC Flow Logs is not enabled for VPC ,https://aquasecurity.github.io/tfsec/v1.28.5/checks/aws/ec2/require-vpc-flow-logs-for-all-vpcs/,false
