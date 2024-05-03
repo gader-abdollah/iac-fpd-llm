@@ -42,7 +42,8 @@ code_blocks = []
 # Extract information from each vulnerability
 for vuln in vulnerabilities:
     location = vuln.get('location', {})
-    file_path = '/home/abdollah/Downloads/Project/' + location.get('file', '')
+    pwd = subprocess.check_output('realpath ../repos/', shell=True).decode('utf-8').strip()
+    file_path = pwd + '/' + location.get('file', '')
     folder_name = get_folder_name(file_path)
 
     descriptions.append(vuln.get('description', ''))

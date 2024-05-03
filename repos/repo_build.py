@@ -1,7 +1,7 @@
 import requests
 import os
 
-PER_PAGE = 30
+PER_PAGE = 5
 GITHUB_TOKEN = 'YOUR_TOKEN'
 
 def search_and_clone_terraform_repos(query, token, output_dir):
