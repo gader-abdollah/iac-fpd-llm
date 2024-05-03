@@ -3,7 +3,7 @@ IaC script vulnerability false positive detection using open source LLM(s)
 
 ## Set important variables
 
-__PER_PAGE__: The number of repositories to clone (5 by default)
+__PER_PAGE__: The number of repositories to clone (5 by default)  
 __GITHUB_TOKEN__: Your personal token used to make queries using the github api (will not work without it)
 
 ## Important points
