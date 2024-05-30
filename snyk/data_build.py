@@ -63,7 +63,7 @@ for file, target_file_path in zip(df['infrastructureAsCodeIssues'], df['targetFi
         row['start_line'] = vulnerability['lineNumber'] + 1 if vulnerability['lineNumber'] < 0 else vulnerability['lineNumber']
         code_block, end_line = get_line_content_more(target_file_path, vulnerability['lineNumber'])
         row['end_line'] = end_line
-        row['code block'] = code_block
+        row['code_block'] = code_block
         data.append(row)
 
 df_output = pd.DataFrame(data)
