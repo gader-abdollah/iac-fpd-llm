@@ -1,25 +1,36 @@
 import requests
 import os
 
-PER_PAGE = 5
+PER_PAGE = 100
 GITHUB_TOKEN = 'YOUR_TOKEN'
+TOTAL_REPOS = 151
 
-def search_and_clone_terraform_repos(query, token, output_dir):
+def search_and_clone_terraform_repos(query, token, output_dir, total_repos=100):
     headers = {'Authorization': f'token {token}'}
     search_url = 'https://api.github.com/search/repositories'
-    params = {'q': query, 'per_page': PER_PAGE}  # Limit to 100 items per page
+    repos = []
+    page = 1
+
+    while len(repos) < total_repos:
+        params = {'q': query, 'per_page': PER_PAGE, 'page': page}
+        
+        response = requests.get(search_url, headers=headers, params=params)
+        if response.status_code != 200:
+            print(f"Failed to search repositories. Status code: {response.status_code}")
+            return
+        
+        repos.extend(response.json()['items'])
+        print(f"Page {page}: Found {len(response.json()['items'])} repositories")
+        
+        if len(response.json()['items']) < PER_PAGE:
+            break  # No more repositories to fetch
+        
+        page += 1
     
-    # Search for repositories
-    response = requests.get(search_url, headers=headers, params=params)
-    if response.status_code != 200:
-        print(f"Failed to search repositories. Status code: {response.status_code}")
-        return
-    
-    repos = response.json()['items']
-    print(f"Found {len(repos)} repositories")
+    print(f"Total repositories fetched: {len(repos)}")
     
     # Clone repositories
-    for repo in repos[:100]:  # Limit to maximum of 100 repositories
+    for repo in repos[:total_repos]:
         clone_url = repo['clone_url']
         repo_name = repo['name']
         repo_path = os.path.join(output_dir, repo_name)
@@ -42,4 +53,4 @@ if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
 # Search for Terraform repositories and clone them
-search_and_clone_terraform_repos(query, token, output_dir)
+search_and_clone_terraform_repos(query, token, output_dir, total_repos=TOTAL_REPOS)
