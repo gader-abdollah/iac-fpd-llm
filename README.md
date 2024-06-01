@@ -15,11 +15,11 @@ repos/repo_build.py:
 * By default, tfsec is ignored in the summary script because it severely limits the number of intersections
 
 ## Necessary dependencies
-* snyk
-* checkov
-* kics
-* semgrep
-* tfsec
+* [snyk](https://docs.snyk.io/snyk-cli/install-or-update-the-snyk-cli)
+* [checkov](https://www.checkov.io/2.Basics/Installing%20Checkov.html)
+* [kics](https://docs.kics.io/1.4.5/getting-started/)
+* [semgrep](https://semgrep.dev/docs/getting-started/quickstart)
+* [tfsec](https://aquasecurity.github.io/tfsec/v0.63.1/getting-started/installation/)
 
 To install them, you need docker engine, pip, npm and brew
 ```bash
