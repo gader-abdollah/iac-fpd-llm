@@ -44,6 +44,11 @@ The snyk API key can be found in the account profile as of May 2024.
 snyk auth <API_KEY>
 semgrep login
 ```
+To run api_run.py, you need to set your Openai API key. Here is a [quickstart guide](https://platform.openai.com/docs/quickstart?lang=Images).
+You need to set the API key in the ~/.bashrc file.
+```bash
+export OPENAI_API_KEY=YOUR_TOKEN
+```
 
 ## How to run the experiment
 You can copy and paste this script in the terminal once you are in the 
@@ -70,4 +75,6 @@ python3 data_build.py
 cd ..
 python3 find_intersections.py
 python3 summary.py
+python3 api_run.py
+python3 result_analysis.py
 ```
